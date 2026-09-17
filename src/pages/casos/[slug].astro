@@ -1,0 +1,45 @@
+---
+import { cases } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return cases.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={`${item.client} · Caso DevCamp`} description={item.summary}>
+  <article class="mx-auto max-w-3xl px-5 py-16">
+    <p class="text-xs uppercase tracking-[0.22em] text-lime">{item.client} · {item.sector}</p>
+    <h1 class="font-display mt-4 text-4xl font-semibold tracking-tight">{item.title}</h1>
+    <p class="mt-5 text-lg leading-8 text-mist">{item.summary}</p>
+    <dl class="mt-10 grid grid-cols-2 gap-4 rounded-[1.6rem] border border-line p-6">
+      <div>
+        <dt class="text-xs uppercase tracking-[0.2em] text-mist">Resultado</dt>
+        <dd class="mt-2 text-lime">{item.result}</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-[0.2em] text-mist">Métrica clave</dt>
+        <dd class="mt-2">{item.metric}</dd>
+      </div>
+    </dl>
+    <div class="prose mt-10 max-w-none space-y-4 text-mist">
+      <p>
+        Partimos de un diagnóstico de oferta, canales y datos. El problema no era “hacer más marketing”: era alinear mensaje, medición y cadencia de ejecución.
+      </p>
+      <p>
+        En las primeras semanas reconstruimos el sistema de captura, los creativos y el reporting. Después operamos sprints semanales para doblar lo que convertía y cortar el ruido.
+      </p>
+      <p>
+        El resultado no es un pico de tráfico. Es un motor que el equipo puede seguir operando con DevCamp como extensión de su mesa de crecimiento.
+      </p>
+    </div>
+    <a href="/contacto" class="mt-12 inline-flex rounded-full bg-lime px-5 py-3 text-sm font-medium text-ink">
+      Quiero un caso así
+    </a>
+  </article>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import SectionHeading from "../components/SectionHeading.astro";
+import { team } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Nosotros · DevCamp"
+  description="DevCamp es una agencia de marketing híbrida: estrategia, growth, creative y producto digital en un solo equipo."
+>
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <SectionHeading
+      eyebrow="Nosotros"
+      title="Un campamento, no una fábrica de entregables."
+      body="DevCamp nace de una idea simple: el marketing moderno se rompe cuando marca, media y producto viven en silos. Aquí comparten mesa, datos y criterio."
+    />
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      <article class="rounded-[1.6rem] border border-line p-8">
+        <h2 class="font-display text-2xl">Cómo pensamos</h2>
+        <p class="mt-4 text-sm leading-7 text-mist">
+          Preferimos sistemas a campañas sueltas. Preferimos un dashboard honesto a un informe bonito. Preferimos menos reuniones y más sprints en mercado.
+        </p>
+      </article>
+      <article class="rounded-[1.6rem] border border-line p-8">
+        <h2 class="font-display text-2xl">Con quién encajamos</h2>
+        <p class="mt-4 text-sm leading-7 text-mist">
+          Fundadores, CMOs y equipos de growth que ya tienen un producto o servicio real y necesitan un partner que ejecute con el mismo estándar que su producto.
+        </p>
+      </article>
+    </div>
+    <h2 class="font-display mt-16 text-3xl font-semibold">El equipo</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {team.map((person) => (
+        <article class="rounded-[1.6rem] border border-line bg-ink-soft p-6">
+          <h3 class="text-lg font-semibold">{person.name}</h3>
+          <p class="text-sm text-lime">{person.role}</p>
+          <p class="mt-3 text-sm leading-6 text-mist">{person.bio}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

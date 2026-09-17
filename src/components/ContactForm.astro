@@ -1,0 +1,53 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<form class={`grid gap-4 ${className}`} data-contact-form>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm">
+      Nombre
+      <input required name="name" autocomplete="name" class="rounded-2xl border border-line bg-ink px-4 py-3 text-cream outline-none ring-lime focus:ring-2" />
+    </label>
+    <label class="grid gap-2 text-sm">
+      Email
+      <input required type="email" name="email" autocomplete="email" class="rounded-2xl border border-line bg-ink px-4 py-3 text-cream outline-none ring-lime focus:ring-2" />
+    </label>
+  </div>
+  <label class="grid gap-2 text-sm">
+    Empresa
+    <input name="company" autocomplete="organization" class="rounded-2xl border border-line bg-ink px-4 py-3 text-cream outline-none ring-lime focus:ring-2" />
+  </label>
+  <label class="grid gap-2 text-sm">
+    Qué necesitas
+    <select name="need" class="rounded-2xl border border-line bg-ink px-4 py-3 text-cream outline-none ring-lime focus:ring-2">
+      <option>Diagnóstico de 14 días</option>
+      <option>Performance y paid media</option>
+      <option>Marca y contenido</option>
+      <option>Web / producto</option>
+      <option>Retainer de crecimiento</option>
+    </select>
+  </label>
+  <label class="grid gap-2 text-sm">
+    Contexto
+    <textarea name="message" rows="5" required class="rounded-2xl border border-line bg-ink px-4 py-3 text-cream outline-none ring-lime focus:ring-2"></textarea>
+  </label>
+  <button type="submit" class="rounded-full bg-lime px-5 py-3 text-sm font-medium text-ink hover:bg-cream">
+    Enviar briefing
+  </button>
+  <p class="hidden text-sm text-mint" data-form-success>Recibido. Te respondemos en un día hábil.</p>
+  <p class="text-xs text-mist">Al enviar aceptas que usemos estos datos solo para responder tu consulta.</p>
+</form>
+
+<script>
+  const form = document.querySelector("[data-contact-form]");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const success = form.querySelector("[data-form-success]");
+    success?.classList.remove("hidden");
+    if (form instanceof HTMLFormElement) form.reset();
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+import SectionHeading from "../../components/SectionHeading.astro";
+import { services } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Servicios · DevCamp"
+  description="Estrategia de marca, performance, contenido, SEO, web y marketing con IA. El stack completo de DevCamp."
+>
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <SectionHeading
+      eyebrow="Servicios"
+      title="El menú es corto a propósito."
+      body="Seis líneas de trabajo que cubren el viaje completo: de la narrativa al anuncio, de la web al reporting."
+    />
+    <div class="mt-12 grid gap-4">
+      {services.map((service, index) => (
+        <a
+          href={`/servicios/${service.slug}`}
+          class="grid gap-4 rounded-[1.6rem] border border-line p-6 transition hover:border-lime/50 md:grid-cols-[auto_1fr_auto] md:items-center"
+        >
+          <span class="font-display text-lime">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h2 class="text-xl font-semibold">{service.title}</h2>
+            <p class="mt-2 text-sm text-mist">{service.short}</p>
+          </div>
+          <span class="text-sm text-lime">Explorar →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

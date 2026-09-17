@@ -1,0 +1,80 @@
+---
+import { site } from "../data/site";
+
+const services = [
+  "Estrategia",
+  "Performance",
+  "SEO",
+  "Contenido",
+  "Social",
+  "Web",
+  "CRO",
+  "IA aplicada",
+  "Brand",
+];
+---
+
+<section class="relative overflow-hidden grain">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 pb-20 pt-16 lg:grid-cols-[1.2fr_0.8fr] lg:pt-24">
+    <div class="rise">
+      <p class="text-xs font-medium uppercase tracking-[0.24em] text-lime">Agencia de marketing · DevCamp</p>
+      <h1 class="font-display mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-cream sm:text-6xl">
+        Crecemos marcas que se sienten inevitables.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-8 text-mist">
+        {site.tagline} Estrategia, media, contenido y producto digital en un mismo campamento de ejecución.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/contacto" class="rounded-full bg-lime px-5 py-3 text-sm font-medium text-ink hover:bg-cream">
+          Reservar diagnóstico
+        </a>
+        <a href="/casos" class="rounded-full border border-line px-5 py-3 text-sm text-cream hover:border-cream">
+          Ver casos
+        </a>
+      </div>
+      <dl class="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-8 text-sm">
+        <div>
+          <dt class="text-mist">ROAS medio</dt>
+          <dd class="font-display mt-1 text-2xl text-cream">3.1x</dd>
+        </div>
+        <div>
+          <dt class="text-mist">Marcas</dt>
+          <dd class="font-display mt-1 text-2xl text-cream">40+</dd>
+        </div>
+        <div>
+          <dt class="text-mist">Países</dt>
+          <dd class="font-display mt-1 text-2xl text-cream">12</dd>
+        </div>
+      </dl>
+    </div>
+    <aside class="relative rounded-[2rem] border border-line bg-ink-soft p-6 shadow-[0_0_80px_rgb(214_255_75_/_0.08)]">
+      <p class="text-xs uppercase tracking-[0.2em] text-mist">Sprint de 14 días</p>
+      <ol class="mt-6 space-y-5">
+        <li class="rounded-2xl border border-line bg-ink p-4">
+          <p class="text-xs text-lime">Día 1–4</p>
+          <p class="mt-1 font-medium">Auditoría de marca, canales y unit economics.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-ink p-4">
+          <p class="text-xs text-lime">Día 5–9</p>
+          <p class="mt-1 font-medium">Sistema de mensajes, oferta y medición.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-ink p-4">
+          <p class="text-xs text-lime">Día 10–14</p>
+          <p class="mt-1 font-medium">Plan de sprints y primeros experimentos en mercado.</p>
+        </li>
+      </ol>
+    </aside>
+  </div>
+  <div class="border-y border-line bg-ink-soft/70">
+    <div class="overflow-hidden py-4">
+      <div class="marquee-track flex w-max gap-10 text-sm uppercase tracking-[0.28em] text-mist">
+        {[...services, ...services].map((item) => (
+          <span class="flex items-center gap-10">
+            {item}
+            <span class="text-lime">✦</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

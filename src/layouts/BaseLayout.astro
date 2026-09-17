@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <Seo title={title} description={description} path={path} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="min-h-screen antialiased">
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">
+      Saltar al contenido
+    </a>
+    <Header currentPath={path} />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import Lenis from "lenis";
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const lenis = new Lenis({ autoRaf: true });
+        lenis;
+      }
+    </script>
+  </body>
+</html>

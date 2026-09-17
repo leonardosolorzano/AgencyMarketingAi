@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("insights");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} · DevCamp`} description={post.data.description}>
+  <article class="mx-auto max-w-3xl px-5 py-16">
+    <p class="text-xs uppercase tracking-[0.22em] text-lime">{post.data.tag}</p>
+    <h1 class="font-display mt-4 text-4xl font-semibold tracking-tight">{post.data.title}</h1>
+    <p class="mt-4 text-mist">{post.data.description}</p>
+    <div class="mt-10 space-y-4 leading-7 text-mist [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-cream [&_p]:text-mist">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

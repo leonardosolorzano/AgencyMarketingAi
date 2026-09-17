@@ -1,0 +1,38 @@
+---
+import { nav, site } from "../data/site";
+import Logo from "./Logo.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div class="max-w-sm">
+      <Logo />
+      <p class="mt-5 text-sm leading-6 text-mist">{site.tagline}</p>
+    </div>
+    <div>
+      <p class="text-xs uppercase tracking-[0.2em] text-mist">Explorar</p>
+      <ul class="mt-4 space-y-2 text-sm">
+        {nav.map((item) => (
+          <li><a class="hover:text-lime" href={item.href}>{item.label}</a></li>
+        ))}
+        <li><a class="hover:text-lime" href="/privacidad">Privacidad</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs uppercase tracking-[0.2em] text-mist">Contacto</p>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a class="hover:text-lime" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>{site.phone}</li>
+        <li>{site.location}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-line">
+    <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-xs text-mist sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} DevCamp. Todos los derechos reservados.</p>
+      <p>Hecho con Astro · Tailwind · TypeScript</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,29 @@
+---
+import ContactForm from "../components/ContactForm.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contacto · DevCamp"
+  description="Cuéntanos tu marca y arrancamos un diagnóstico de 14 días. DevCamp responde en un día hábil."
+>
+  <section class="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <SectionHeading
+        eyebrow="Contacto"
+        title="Cuéntanos qué quieres hacer inevitable."
+        body="Un briefing corto basta. Si hay fit, te proponemos el sprint de diagnóstico y el equipo que se sienta a la mesa."
+      />
+      <ul class="mt-10 space-y-3 text-sm text-mist">
+        <li>{site.email}</li>
+        <li>{site.phone}</li>
+        <li>{site.location}</li>
+      </ul>
+    </div>
+    <div class="rounded-[2rem] border border-line bg-ink-soft p-6 sm:p-8">
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>

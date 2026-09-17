@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "../../components/SectionHeading.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("insights")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Insights · DevCamp"
+  description="Notas de DevCamp sobre growth, marca, medición e IA aplicada al marketing."
+>
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <SectionHeading
+      eyebrow="Insights"
+      title="Notas de campamento."
+      body="Ideas que usamos con clientes: sistemas, no recetas virales."
+    />
+    <div class="mt-12 grid gap-4">
+      {posts.map((post) => (
+        <a href={`/insights/${post.id}`} class="rounded-[1.6rem] border border-line p-6 hover:border-lime/50">
+          <p class="text-xs uppercase tracking-[0.2em] text-mist">
+            {post.data.tag} · {post.data.minutes} min
+          </p>
+          <h2 class="mt-3 text-2xl font-semibold">{post.data.title}</h2>
+          <p class="mt-2 text-sm text-mist">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

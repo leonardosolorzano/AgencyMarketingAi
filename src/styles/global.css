@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "@fontsource-variable/syne";
+@import "@fontsource-variable/outfit";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --font-display: "Syne Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #07080a;
+  --color-ink-soft: #111318;
+  --color-line: #23262d;
+  --color-cream: #f3efe4;
+  --color-mist: #b7b2a6;
+  --color-lime: #d6ff4b;
+  --color-mint: #7ee0c8;
+  --color-ember: #ff7a45;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.grain {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgb(214 255 75 / 0.08), transparent 32%),
+    radial-gradient(circle at 90% 20%, rgb(126 224 200 / 0.08), transparent 28%);
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(12px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.8s var(--ease-out-expo) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .rise {
+    animation: none;
+  }
+}
