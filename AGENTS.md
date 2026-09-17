@@ -1,5 +1,7 @@
 ## Development
 
+This project uses **pnpm** as the package manager (do not use npm). Install dependencies with `pnpm install`.
+
 When starting the dev server, use background mode:
 
 ```

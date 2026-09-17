@@ -4,9 +4,9 @@ export const site = {
   description:
     "DevCamp es una agencia de marketing digital. Estrategia, performance, contenido, SEO y producto digital para equipos que miden cada decisión.",
   url: "https://devcamp.agency",
-  email: "hola@devcamp.agency",
-  phone: "+34 910 000 000",
-  location: "Madrid · Remoto",
+  email: "ivanpacheco.solorzano@gmail.com",
+  phone: "+593 969 802 512",
+  location: "Guayaquil · Ecuador",
   socials: {
     instagram: "https://instagram.com/devcamp",
     linkedin: "https://linkedin.com/company/devcamp",
@@ -147,24 +147,14 @@ export const process = [
 
 export const team = [
   {
-    name: "Camila Ortiz",
-    role: "Strategy Lead",
-    bio: "Posicionamiento y narrativa para marcas que necesitan un punto de vista, no un eslogan.",
-  },
-  {
-    name: "Diego Navarro",
-    role: "Growth Lead",
-    bio: "Performance, atribución y sistemas de adquisición. Obsesionado con el unit economics.",
-  },
-  {
-    name: "María Beltrán",
-    role: "Creative Lead",
-    bio: "Dirección de arte y contenido. Convierte estrategia en piezas que la gente realmente para a ver.",
-  },
-  {
-    name: "Leo Campos",
-    role: "Product & Web",
-    bio: "Diseño y desarrollo de experiencias digitales rápidas, accesibles y pensadas para convertir.",
+    name: "Ivan Pacheco",
+    role: "Fundador & Growth",
+    bio: "Ayudo a negocios de Ecuador a estar en internet: sitio web que convierta, SEO local y contenido medible. Estrategia, web, performance y marca en un solo partner.",
+    contact: {
+      phone: "+593 969 802 512",
+      email: "ivanpacheco.solorzano@gmail.com",
+      location: "Guayaquil · Ecuador",
+    },
   },
 ] as const;
 
